@@ -3,8 +3,16 @@ package com.museumsgide.demo.dto;
 public class UsersDTO {
     private Long id;
     private String name;
-    private String password;/*
-    private Enum role;*/
+    private String password;
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public Long getId() {
         return id;
@@ -29,12 +37,5 @@ public class UsersDTO {
     public void setPassword(String password) {
         this.password = password;
     }
-/*
-    public Enum getRole() {
-        return role;
-    }
 
-    public void setRole(Enum role) {
-        this.role = role;
-    }*/
 }
