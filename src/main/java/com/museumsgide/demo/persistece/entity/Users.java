@@ -1,6 +1,7 @@
 package com.museumsgide.demo.persistece.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Entity
 public class Users {
@@ -14,9 +15,18 @@ public class Users {
 
     @Column
     private String password;
-/*
+
     @Column
-    private Enum role;*/
+    @Email
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public Long getId() {
         return id;
@@ -41,12 +51,5 @@ public class Users {
     public void setPassword(String password) {
         this.password = password;
     }
-/*
-    public Enum getRole() {
-        return role;
-    }
 
-    public void setRole(Enum role) {
-        this.role = role;
-    }*/
 }

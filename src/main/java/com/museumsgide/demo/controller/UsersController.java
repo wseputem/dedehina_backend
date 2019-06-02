@@ -1,7 +1,6 @@
 package com.museumsgide.demo.controller;
 
 import com.museumsgide.demo.dto.UsersDTO;
-import com.museumsgide.demo.persistece.repository.UsersRepository;
 import com.museumsgide.demo.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +21,7 @@ public class UsersController {
 
     @PostMapping(path = "/create", consumes = "application/json", produces = "application/json")
     public UsersDTO createUsers(@RequestBody UsersDTO usersDTO){
-        return usersService.save(usersDTO);
+        return usersService.create(usersDTO);
     }
 
     @DeleteMapping(path = "/delete/id:{id}")

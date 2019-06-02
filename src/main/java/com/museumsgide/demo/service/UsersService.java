@@ -19,7 +19,7 @@ public class UsersService {
         this.usersMapper = usersMapper;
     }
 
-    public UsersDTO save(UsersDTO usersDTO){
+    public UsersDTO create(UsersDTO usersDTO){
         Users users = usersMapper.createUsers(usersDTO);
         users = usersRepository.save(users);
         return usersMapper.createUsersDTO(users);
@@ -37,7 +37,7 @@ public class UsersService {
 
     public UsersDTO update(UsersDTO usersDTO){
         if (usersRepository.existsById(usersDTO.getId())) {
-            return save(usersDTO);
+            return create(usersDTO);
         } else {
             return null;
         }
