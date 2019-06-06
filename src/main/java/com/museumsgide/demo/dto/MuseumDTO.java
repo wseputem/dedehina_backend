@@ -1,5 +1,10 @@
 package com.museumsgide.demo.dto;
 
+import sun.plugin.javascript.navig.Array;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MuseumDTO {
     private Long id;
     private String name;
