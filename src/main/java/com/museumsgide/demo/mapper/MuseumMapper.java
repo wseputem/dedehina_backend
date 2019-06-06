@@ -25,6 +25,7 @@ public class MuseumMapper {
         Museum museum = new Museum();
         museum.setId(museumDTO.getId());
         museum.setName(museumDTO.getName());
+        museum.setDescription(museumDTO.getDescription());
         museum.setCity(cityRepository.findById(museumDTO.getCityId()).orElse(null));
         museum.setCatMuseums(catMuseumsRepository.findById(museumDTO.getCatMuseumsId()).orElse(null));
         return museum;
@@ -34,6 +35,7 @@ public class MuseumMapper {
         MuseumDTO museumDTO = new MuseumDTO();
         museumDTO.setId(museum.getId());
         museumDTO.setName(museum.getName());
+        museumDTO.setDescription(museum.getDescription());
         museumDTO.setCityId(museum.getCity().getId());
         museumDTO.setCatMuseumsId(museum.getCatMuseums().getId());
         return museumDTO;

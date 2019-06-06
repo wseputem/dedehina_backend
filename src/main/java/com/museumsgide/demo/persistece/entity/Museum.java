@@ -21,6 +21,17 @@ public class Museum {
     @ManyToOne
     private CatMuseums catMuseums;
 
+    @Column
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public City getCity() {
         return city;
     }

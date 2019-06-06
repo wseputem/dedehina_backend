@@ -5,6 +5,15 @@ public class MuseumDTO {
     private String name;
     private Long cityId;
     private Long catMuseumsId;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Long getId() {
         return id;
