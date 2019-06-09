@@ -26,6 +26,17 @@ public class Museum {
     @Column
     private String description;
 
+    @Column
+    private Integer entrancePrice;
+
+    public Integer getEntrancePrice() {
+        return entrancePrice;
+    }
+
+    public void setEntrancePrice(Integer entrancePrice) {
+        this.entrancePrice = entrancePrice;
+    }
+
     public String getDescription() {
         return description;
     }

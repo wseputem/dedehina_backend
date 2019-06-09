@@ -28,6 +28,7 @@ public class MuseumMapper {
         museum.setDescription(museumDTO.getDescription());
         museum.setCity(cityRepository.findById(museumDTO.getCityId()).orElse(null));
         museum.setCatMuseums(catMuseumsRepository.findById(museumDTO.getCatMuseumsId()).orElse(null));
+        museum.setEntrancePrice(museumDTO.getEntrancePrice());
         return museum;
     }
 
@@ -38,6 +39,7 @@ public class MuseumMapper {
         museumDTO.setDescription(museum.getDescription());
         museumDTO.setCityId(museum.getCity().getId());
         museumDTO.setCatMuseumsId(museum.getCatMuseums().getId());
+        museumDTO.setEntrancePrice(museum.getEntrancePrice());
         return museumDTO;
     }
 

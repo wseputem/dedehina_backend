@@ -11,6 +11,15 @@ public class MuseumDTO {
     private Long cityId;
     private Long catMuseumsId;
     private String description;
+    private Integer entrancePrice;
+
+    public Integer getEntrancePrice() {
+        return entrancePrice;
+    }
+
+    public void setEntrancePrice(Integer entrancePrice) {
+        this.entrancePrice = entrancePrice;
+    }
 
     public String getDescription() {
         return description;
