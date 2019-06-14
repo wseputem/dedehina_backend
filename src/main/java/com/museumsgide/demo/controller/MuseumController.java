@@ -50,12 +50,38 @@ public class MuseumController {
     }
 
     @GetMapping(path = "/search/catMuseumsId:{id}")
-    public List<MuseumDTO> searchByName(@PathVariable Long id) {
+    public List<MuseumDTO> searchByCatMuseumsId(@PathVariable Long id) {
         return museumService.searchByCatMuseumsId(id);
+    }
+
+    @GetMapping(path = "/search/catMuseumsName:{name}")
+    public List<MuseumDTO> searchByCatMuseumsName(@PathVariable String name) {
+        return museumService.searchByCatMuseumsName(name);
     }
 
     @GetMapping(path = "/search/cityId:{id}")
     public List<MuseumDTO> searchByCityId(@PathVariable Long id) {
         return museumService.searchByCityId(id);
     }
+
+    @GetMapping(path = "/search/cityName:{name}")
+    public List<MuseumDTO> searchByCityName(@PathVariable String name) {
+        return museumService.searchByCityName(name);
+    }
+
+    @GetMapping(path = "/search/description:{descr}")
+    public List<MuseumDTO> searchByDescription(@PathVariable String descr) {
+        return museumService.searchByDescription(descr);
+    }
+
+    @GetMapping(path = "/search/entrancePriceIsGreaterThan:{entrancePrice}")
+    public List<MuseumDTO> searchByEntrancePriceIsGreaterThan(@PathVariable Long entrancePrice) {
+        return museumService.searchByEntrancePriceIsGreaterThan(entrancePrice);
+    }
+
+    @GetMapping(path = "/search/entrancePriceIsLessThan:{entrancePrice}")
+    public List<MuseumDTO> searchByEntrancePriceIsLessThan(@PathVariable Long entrancePrice) {
+        return museumService.searchByEntrancePriceIsLessThan(entrancePrice);
+    }
+
 }

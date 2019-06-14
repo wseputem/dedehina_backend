@@ -66,6 +66,16 @@ public class MuseumService {
             return null;
         }
     }
+
+    public List<MuseumDTO> searchByCityName(String name){
+        List<Museum> list = museumsRepository.findAllByCity_Name(name);
+        if (list != null) {
+            return museumMapper.createMuseumDTOList(list);
+        } else {
+            return null;
+        }
+    }
+
     public List<MuseumDTO> searchByCatMuseumsId(Long id){
         List<Museum> list = museumsRepository.findAllByCatMuseumsId(id);
         if (list != null) {
@@ -74,4 +84,41 @@ public class MuseumService {
             return null;
         }
     }
+    public List<MuseumDTO>  searchByCatMuseumsName(String name){
+        List<Museum> list = museumsRepository.findAllByCatMuseums_Name(name);
+        if (list != null) {
+            return museumMapper.createMuseumDTOList(list);
+        } else {
+            return null;
+        }
+    }
+
+    public List<MuseumDTO>  searchByDescription(String descr){
+        List<Museum> list = museumsRepository.findAllByDescriptionContaining(descr);
+        if (list != null) {
+            return museumMapper.createMuseumDTOList(list);
+        } else {
+            return null;
+        }
+    }
+
+
+    public List<MuseumDTO>  searchByEntrancePriceIsGreaterThan(Long entrancePrice){
+        List<Museum> list = museumsRepository.findAllByEntrancePriceIsGreaterThan(entrancePrice);
+        if (list != null) {
+            return museumMapper.createMuseumDTOList(list);
+        } else {
+            return null;
+        }
+    }
+
+    public List<MuseumDTO>  searchByEntrancePriceIsLessThan(Long entrancePrice){
+        List<Museum> list = museumsRepository.findAllByEntrancePriceIsLessThan(entrancePrice);
+        if (list != null) {
+            return museumMapper.createMuseumDTOList(list);
+        } else {
+            return null;
+        }
+    }
 }
+

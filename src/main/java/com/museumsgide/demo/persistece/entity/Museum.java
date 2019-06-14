@@ -27,13 +27,13 @@ public class Museum {
     private String description;
 
     @Column
-    private Integer entrancePrice;
+    private Long entrancePrice;
 
-    public Integer getEntrancePrice() {
+    public Long getEntrancePrice() {
         return entrancePrice;
     }
 
-    public void setEntrancePrice(Integer entrancePrice) {
+    public void setEntrancePrice(Long entrancePrice) {
         this.entrancePrice = entrancePrice;
     }
 
