@@ -64,4 +64,5 @@ public class ObjectsController {
     public List<ObjectsDTO> searchByAuthorName(@PathVariable String name) {
         return objectsService.searchByAuthor_Name(name);
     }
+
 }

@@ -14,6 +14,11 @@ import java.util.List;
 public class UsersController {
     private UsersService usersService;
 
+    /*@Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }*/
+
     @Autowired
     public UsersController(UsersService usersService) {
         this.usersService = usersService;
@@ -25,17 +30,27 @@ public class UsersController {
     }
 
     @DeleteMapping(path = "/delete/id:{id}")
-    public  String delete(@PathVariable Long id){
+    public  String deleteUsers(@PathVariable Long id){
         return usersService.delete(id);
     }
 
     @PostMapping(path = "/update", consumes = "application/json", produces = "application/json")
-    public ResponseEntity editNews(@RequestBody UsersDTO usersDTO) {
+    public ResponseEntity editUsers(@RequestBody UsersDTO usersDTO) {
         UsersDTO result = usersService.update(usersDTO);
         if (result == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         } else {
             return ResponseEntity.ok(result);
+        }
+    }
+
+    @PostMapping(path = "/aut", consumes = "application/json", produces = "application/json")
+    public ResponseEntity aut(@RequestBody UsersDTO usersDTO) {
+        Long id = usersService.searchForAut(usersDTO);
+        if (id == null) {   
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        } else {
+            return ResponseEntity.ok(id);
         }
     }
 

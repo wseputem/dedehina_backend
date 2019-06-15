@@ -14,6 +14,7 @@ import java.util.List;
 public class ObjectsMapper {
     private AuthorRepository authorRepository;
     private CatObjectsRepository catObjectsRepository;
+    private ExhibitionsMapper exhibitionsMapper;
 
     @Autowired
     public ObjectsMapper(AuthorRepository authorRepository, CatObjectsRepository catObjectsRepository) {
@@ -28,6 +29,7 @@ public class ObjectsMapper {
         objects.setAuthor(authorRepository.findById(objectsDTO.getAuthorId()).orElse(null));
         objects.setCatObject(catObjectsRepository.findById(objectsDTO.getCatObjectsId()).orElse(null));
         objects.setDate(objectsDTO.getDate());
+        objects.setExhibitionsList(exhibitionsMapper.createExhibitionsList(objectsDTO.getExhibitionsDTOList()));
         return objects;
     }
 
@@ -38,6 +40,7 @@ public class ObjectsMapper {
         objectsDTO.setAuthorId(objects.getAuthor().getId());
         objectsDTO.setCatObjectsId(objects.getCatObject().getId());
         objectsDTO.setDate(objects.getDate());
+        objectsDTO.setExhibitionsDTOList(exhibitionsMapper.createExhibitionsDTOList(objects.getExhibitionsList()));
         return objectsDTO;
     }
 
@@ -48,5 +51,13 @@ public class ObjectsMapper {
             objectsDTOList.add(createObjectsDTO(objects));
         }
         return objectsDTOList;
+    }
+
+    public List<Objects> createObjectsList(List<ObjectsDTO> objectsDTOList){
+        List<Objects> objectsList = new ArrayList<>();
+        for (ObjectsDTO objectsDTO : objectsDTOList) {
+            objectsList.add(createObjects(objectsDTO));
+        }
+        return objectsList;
     }
 }

@@ -2,6 +2,7 @@ package com.museumsgide.demo.persistece.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Exhibitions {
@@ -23,6 +24,21 @@ public class Exhibitions {
 
     @ManyToOne
     private Branch branch;
+
+    @ManyToMany
+    @JoinTable (name="exh_object",
+            joinColumns=@JoinColumn (name="exhibitions_id"),
+            inverseJoinColumns=@JoinColumn(name="objects_id"))
+    private List<Objects> objectsList;
+
+
+    public List<Objects> getObjectsList() {
+        return objectsList;
+    }
+
+    public void setObjectsList(List<Objects> objectsList) {
+        this.objectsList = objectsList;
+    }
 
     public Long getId() {
         return id;
@@ -71,4 +87,5 @@ public class Exhibitions {
     public void setBranch(Branch branch) {
         this.branch = branch;
     }
+
 }

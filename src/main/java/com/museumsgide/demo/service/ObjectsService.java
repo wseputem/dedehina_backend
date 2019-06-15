@@ -2,7 +2,6 @@ package com.museumsgide.demo.service;
 
 import com.museumsgide.demo.dto.ObjectsDTO;
 import com.museumsgide.demo.mapper.ObjectsMapper;
-import com.museumsgide.demo.persistece.entity.Author;
 import com.museumsgide.demo.persistece.entity.Objects;
 import com.museumsgide.demo.persistece.repository.ObjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,5 +85,4 @@ public class ObjectsService {
             return null;
         }
     }
-
 }

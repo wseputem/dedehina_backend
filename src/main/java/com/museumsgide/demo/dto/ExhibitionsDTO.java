@@ -1,6 +1,7 @@
 package com.museumsgide.demo.dto;
 
 import java.util.Date;
+import java.util.List;
 
 public class ExhibitionsDTO {
 
@@ -10,6 +11,7 @@ public class ExhibitionsDTO {
     private Date completionDate;
     private Long catExhibitionsId;
     private Long branchId;
+    private List<ObjectsDTO> objectsDTOList;
 
     public Long getId() {
         return id;
@@ -57,5 +59,13 @@ public class ExhibitionsDTO {
 
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
+    }
+
+    public List<ObjectsDTO> getObjectsDTOList() {
+        return objectsDTOList;
+    }
+
+    public void setObjectsDTOList(List<ObjectsDTO> objectsDTOList) {
+        this.objectsDTOList = objectsDTOList;
     }
 }

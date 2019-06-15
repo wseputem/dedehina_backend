@@ -1,13 +1,24 @@
 package com.museumsgide.demo.dto;
 
 import java.util.Date;
+import java.util.List;
 
 public class ObjectsDTO {
+
     private Long id;
     private String name;
     private Date date;
     private Long catObjectsId;
     private Long authorId;
+    private List<ExhibitionsDTO> exhibitionsDTOList;
+
+    public List<ExhibitionsDTO> getExhibitionsDTOList() {
+        return exhibitionsDTOList;
+    }
+
+    public void setExhibitionsDTOList(List<ExhibitionsDTO> exhibitionsDTOList) {
+        this.exhibitionsDTOList = exhibitionsDTOList;
+    }
 
     public Long getId() {
         return id;

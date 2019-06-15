@@ -2,6 +2,7 @@ package com.museumsgide.demo.persistece.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Objects {
@@ -16,11 +17,24 @@ public class Objects {
     private Date date;
 
     @ManyToOne
-    @JoinColumn(name = "objects_id")
     private Author author;
 
     @ManyToOne
     private CatObject catObject;
+
+    @ManyToMany
+    @JoinTable (name="exh_object",
+            joinColumns=@JoinColumn (name="objects_id"),
+            inverseJoinColumns=@JoinColumn(name="exhibitions_id"))
+    private List<Exhibitions> exhibitionsList;
+
+    public List<Exhibitions> getExhibitionsList() {
+        return exhibitionsList;
+    }
+
+    public void setExhibitionsList(List<Exhibitions> exhibitionsList) {
+        this.exhibitionsList = exhibitionsList;
+    }
 
     public String getName() {
         return name;
