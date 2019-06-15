@@ -1,9 +1,7 @@
 package com.museumsgide.demo.persistece.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Author {
@@ -14,6 +12,9 @@ public class Author {
 
     @Column
     private String name;
+
+    @OneToMany(mappedBy = "author")
+    private List<Objects> objects;
 
     public Long getId() {
         return id;
@@ -29,5 +30,13 @@ public class Author {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Objects> getObjects() {
+        return objects;
+    }
+
+    public void setObjects(List<Objects> objects) {
+        this.objects = objects;
     }
 }

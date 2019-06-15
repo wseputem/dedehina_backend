@@ -16,6 +16,7 @@ public class Objects {
     private Date date;
 
     @ManyToOne
+    @JoinColumn(name = "objects_id")
     private Author author;
 
     @ManyToOne

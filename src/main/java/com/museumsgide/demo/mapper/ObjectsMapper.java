@@ -7,6 +7,9 @@ import com.museumsgide.demo.persistece.repository.CatObjectsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class ObjectsMapper {
     private AuthorRepository authorRepository;
@@ -36,5 +39,14 @@ public class ObjectsMapper {
         objectsDTO.setCatObjectsId(objects.getCatObject().getId());
         objectsDTO.setDate(objects.getDate());
         return objectsDTO;
+    }
+
+
+    public List<ObjectsDTO> createObjectsDTOList(List<Objects> objectsList){
+        List<ObjectsDTO> objectsDTOList = new ArrayList<>();
+        for (Objects objects : objectsList) {
+            objectsDTOList.add(createObjectsDTO(objects));
+        }
+        return objectsDTOList;
     }
 }
