@@ -57,10 +57,10 @@ public class UsersService {
         }
     }
 
-    public Long searchForAut(UsersDTO usersDTO){
+    public UsersDTO searchForAut(UsersDTO usersDTO){
         Users users = usersRepository.findByNameAndPassword(usersDTO.getName(), usersDTO.getPassword());
         if (users != null) {
-            return usersMapper.createUsersDTO(users).getId();
+            return usersMapper.createUsersDTO(users);
         } else {
             return null;
         }

@@ -40,13 +40,13 @@ public class UsersController {
         }
     }
 
-    @PostMapping(path = "/aut", consumes = "application/json", produces = "application/json")
-    public ResponseEntity aut(@RequestBody UsersDTO usersDTO) {
-        Long id = usersService.searchForAut(usersDTO);
-        if (id == null) {
+    @PostMapping(path = "/auth", consumes = "application/json", produces = "application/json")
+    public ResponseEntity auth(@RequestBody UsersDTO usersDTO) {
+        UsersDTO result = usersService.searchForAut(usersDTO);
+        if (result == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         } else {
-            return ResponseEntity.ok(id);
+            return ResponseEntity.ok(result);
         }
     }
 
