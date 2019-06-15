@@ -26,18 +26,14 @@ public class Exhibitions {
     private Branch branch;
 
     @ManyToMany
-    @JoinTable (name="exh_object",
-            joinColumns=@JoinColumn (name="exhibitions_id"),
-            inverseJoinColumns=@JoinColumn(name="objects_id"))
-    private List<Objects> objectsList;
+    private List<Objects> objects;
 
-
-    public List<Objects> getObjectsList() {
-        return objectsList;
+    public List<Objects> getObjects() {
+        return objects;
     }
 
-    public void setObjectsList(List<Objects> objectsList) {
-        this.objectsList = objectsList;
+    public void getObjects(List<Objects> objects) {
+        this.objects = objects;
     }
 
     public Long getId() {

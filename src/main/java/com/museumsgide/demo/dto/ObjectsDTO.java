@@ -1,23 +1,22 @@
 package com.museumsgide.demo.dto;
 
-import java.util.Date;
 import java.util.List;
 
 public class ObjectsDTO {
 
     private Long id;
     private String name;
-    private Date date;
+    private Long date;
     private Long catObjectsId;
     private Long authorId;
-    private List<ExhibitionsDTO> exhibitionsDTOList;
+    private List<Long> exhibitionIds;
 
-    public List<ExhibitionsDTO> getExhibitionsDTOList() {
-        return exhibitionsDTOList;
+    public List<Long> getExhibitionIds() {
+        return exhibitionIds;
     }
 
-    public void setExhibitionsDTOList(List<ExhibitionsDTO> exhibitionsDTOList) {
-        this.exhibitionsDTOList = exhibitionsDTOList;
+    public void setExhibitionIds(List<Long> exhibitionIds) {
+        this.exhibitionIds = exhibitionIds;
     }
 
     public Long getId() {
@@ -36,11 +35,11 @@ public class ObjectsDTO {
         this.name = name;
     }
 
-    public Date getDate() {
+    public Long getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Long date) {
         this.date = date;
     }
 

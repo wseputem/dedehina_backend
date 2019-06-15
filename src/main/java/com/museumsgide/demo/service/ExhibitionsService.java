@@ -2,7 +2,6 @@ package com.museumsgide.demo.service;
 
 import com.museumsgide.demo.dto.ExhibitionsDTO;
 import com.museumsgide.demo.mapper.ExhibitionsMapper;
-import com.museumsgide.demo.persistece.entity.CatExhibitions;
 import com.museumsgide.demo.persistece.entity.Exhibitions;
 import com.museumsgide.demo.persistece.repository.ExhibitionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -104,4 +103,5 @@ public class ExhibitionsService {
             return null;
         }
     }
+
 }

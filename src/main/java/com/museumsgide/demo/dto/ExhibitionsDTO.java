@@ -11,7 +11,7 @@ public class ExhibitionsDTO {
     private Date completionDate;
     private Long catExhibitionsId;
     private Long branchId;
-    private List<ObjectsDTO> objectsDTOList;
+    private List<Long> objectIds;
 
     public Long getId() {
         return id;
@@ -61,11 +61,11 @@ public class ExhibitionsDTO {
         this.startDate = startDate;
     }
 
-    public List<ObjectsDTO> getObjectsDTOList() {
-        return objectsDTOList;
+    public List<Long> getObjectIds() {
+        return objectIds;
     }
 
-    public void setObjectsDTOList(List<ObjectsDTO> objectsDTOList) {
-        this.objectsDTOList = objectsDTOList;
+    public void setObjectIds(List<Long> objectIds) {
+        this.objectIds = objectIds;
     }
 }
