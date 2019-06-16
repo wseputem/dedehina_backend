@@ -3,17 +3,19 @@ package com.museumsgide.demo.service;
 import com.museumsgide.demo.dto.ExhibitionsDTO;
 import com.museumsgide.demo.mapper.ExhibitionsMapper;
 import com.museumsgide.demo.persistece.entity.Exhibitions;
+import com.museumsgide.demo.persistece.entity.Objects;
 import com.museumsgide.demo.persistece.repository.ExhibitionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Service
 public class ExhibitionsService {
-    ExhibitionsRepository exhibitionsRepository;
-    ExhibitionsMapper exhibitionsMapper;
+    private ExhibitionsRepository exhibitionsRepository;
+    private ExhibitionsMapper exhibitionsMapper;
 
     @Autowired
     public ExhibitionsService(ExhibitionsRepository exhibitionsRepository, ExhibitionsMapper exhibitionsMapper) {

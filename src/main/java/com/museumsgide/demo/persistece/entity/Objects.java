@@ -21,7 +21,11 @@ public class Objects {
     @ManyToOne
     private CatObject catObject;
 
-    @ManyToMany(mappedBy = "objects")
+    @ManyToMany(/*mappedBy = "objects", */cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(name="exhibitions_objects",
+            joinColumns=@JoinColumn(name="exhibitions_id"),
+            inverseJoinColumns=@JoinColumn(name="objects_id")
+    )
     private List<Exhibitions> exhibitions;
 
     public List<Exhibitions> getExhibitions() {

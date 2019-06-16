@@ -25,14 +25,18 @@ public class Exhibitions {
     @ManyToOne
     private Branch branch;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(name="exhibitions_objects",
+            joinColumns=@JoinColumn(name="objects_id"),
+            inverseJoinColumns=@JoinColumn(name="exhibitions_id")
+    )
     private List<Objects> objects;
 
     public List<Objects> getObjects() {
         return objects;
     }
 
-    public void getObjects(List<Objects> objects) {
+    public void setObjects(List<Objects> objects) {
         this.objects = objects;
     }
 

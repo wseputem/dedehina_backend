@@ -36,7 +36,7 @@ public class ExhibitionsMapper {
         exhibitions.setCatExhibitions(catExhibitionsRepository.findById(exhibitionsDTO.getCatExhibitionsId()).orElse(null));
         exhibitions.setBranch(branchRepository.findById(exhibitionsDTO.getBranchId()).orElse(null));
         List<Objects> objects = Lists.newArrayList(objectRepository.findAllById(exhibitionsDTO.getObjectIds()));
-        exhibitions.getObjects(objects);
+        exhibitions.setObjects(objects);
         return exhibitions;
     }
 
