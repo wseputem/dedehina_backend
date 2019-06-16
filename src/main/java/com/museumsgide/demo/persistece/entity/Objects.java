@@ -21,7 +21,7 @@ public class Objects {
     @ManyToOne
     private CatObject catObject;
 
-    @ManyToMany(/*mappedBy = "objects", */cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(name = "exhibitions_objects",
             joinColumns = @JoinColumn(name="objects_id"),
             inverseJoinColumns = @JoinColumn(name="exhibitions_id")
