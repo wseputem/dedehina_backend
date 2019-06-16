@@ -22,9 +22,9 @@ public class Objects {
     private CatObject catObject;
 
     @ManyToMany(/*mappedBy = "objects", */cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinTable(name="exhibitions_objects",
-            joinColumns=@JoinColumn(name="exhibitions_id"),
-            inverseJoinColumns=@JoinColumn(name="objects_id")
+    @JoinTable(name = "exhibitions_objects",
+            joinColumns = @JoinColumn(name="objects_id"),
+            inverseJoinColumns = @JoinColumn(name="exhibitions_id")
     )
     private List<Exhibitions> exhibitions;
 

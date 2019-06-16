@@ -26,9 +26,9 @@ public class Exhibitions {
     private Branch branch;
 
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinTable(name="exhibitions_objects",
-            joinColumns=@JoinColumn(name="objects_id"),
-            inverseJoinColumns=@JoinColumn(name="exhibitions_id")
+    @JoinTable(name = "exhibitions_objects",
+            joinColumns = @JoinColumn(name="exhibitions_id"),
+            inverseJoinColumns = @JoinColumn(name="objects_id")
     )
     private List<Objects> objects;
 
