@@ -44,7 +44,6 @@ public class SponsorsService {
         }
     }
 
-
     public List<SponsorsDTO> searchByAll(){
         List<Sponsors> list = sponsorsRepository.findAll();
         return sponsorsMapper.createSponsorsDTOList(list);
