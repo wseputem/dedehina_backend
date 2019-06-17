@@ -21,6 +21,17 @@ public class Objects {
     @ManyToOne
     private CatObject catObject;
 
+    @Column
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(name = "exhibitions_objects",
             joinColumns = @JoinColumn(name="objects_id"),

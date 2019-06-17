@@ -39,6 +39,7 @@ public class ObjectsMapper {
         objects.setDate(objectsDTO.getDate());
         List<Exhibitions> exhibitions = Lists.newArrayList(exhibitionsRepository.findAllById(objectsDTO.getExhibitionIds()));
         objects.setExhibitions(exhibitions);
+        objects.setUrl(objectsDTO.getUrl());
         return objects;
     }
 
@@ -50,6 +51,7 @@ public class ObjectsMapper {
         objectsDTO.setCatObjectsId(objects.getCatObject().getId());
         objectsDTO.setDate(objects.getDate());
         objectsDTO.setExhibitionIds(objects.getExhibitions().stream().map(Exhibitions::getId).collect(Collectors.toList()));
+        objectsDTO.setUrl(objects.getUrl());
         return objectsDTO;
     }
 

@@ -10,6 +10,15 @@ public class ObjectsDTO {
     private Long catObjectsId;
     private Long authorId;
     private List<Long> exhibitionIds;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public List<Long> getExhibitionIds() {
         return exhibitionIds;
