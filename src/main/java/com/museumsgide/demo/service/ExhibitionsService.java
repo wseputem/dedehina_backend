@@ -28,10 +28,12 @@ public class ExhibitionsService {
     private BranchRepository branchRepository;
 
     @Autowired
-    public ExhibitionsService(ExhibitionsRepository exhibitionsRepository, ExhibitionsMapper exhibitionsMapper, ObjectsMapper objectsMapper) {
+    public ExhibitionsService(ExhibitionsRepository exhibitionsRepository, ExhibitionsMapper exhibitionsMapper, ObjectsMapper objectsMapper, MuseumsRepository museumsRepository, BranchRepository branchRepository) {
         this.exhibitionsRepository = exhibitionsRepository;
         this.exhibitionsMapper = exhibitionsMapper;
         this.objectsMapper = objectsMapper;
+        this.museumsRepository = museumsRepository;
+        this.branchRepository = branchRepository;
     }
 
     public ExhibitionsDTO save(ExhibitionsDTO exhibitionsDTO){
@@ -131,14 +133,10 @@ public class ExhibitionsService {
     }
 
     public List<ExhibitionsDTO> searchMuseums(Long id){
-        Museum museum = museumsRepository.findAllById(id);
-        List<ExhibitionsDTO> exhibitionsDTOS = null;
-        List<Exhibitions> exhibitionsList = exhibitionsRepository.findAllByBranchId(branchRepository.findAllByMuseum_Id(museum.getId()).getId());
-        if (exhibitionsList != null) {
-            for(Exhibitions exhibitions : exhibitionsList){
-                exhibitionsDTOS = exhibitionsMapper.createExhibitionsDTOList(exhibitionsList);
-            }
-            return exhibitionsDTOS;
+        Branch branch = branchRepository.findAllByMuseum_Id(id);
+        List<Exhibitions> list = exhibitionsRepository.findAllByBranchId(branch.getId());
+        if (list != null) {
+            return exhibitionsMapper.createExhibitionsDTOList(list);
         } else {
             return null;
         }
