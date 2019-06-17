@@ -12,6 +12,15 @@ public class MuseumDTO {
     private Long catMuseumsId;
     private String description;
     private Long entrancePrice;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public Long getEntrancePrice() {
         return entrancePrice;
