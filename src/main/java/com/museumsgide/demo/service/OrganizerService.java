@@ -1,7 +1,7 @@
 package com.museumsgide.demo.service;
 
-import com.museumsgide.demo.dto.OrganizerDTO;
-import com.museumsgide.demo.mapper.OrganizerMapper;
+import com.museumsgide.demo.shared.dto.OrganizerDTO;
+import com.museumsgide.demo.shared.mapper.OrganizerMapper;
 import com.museumsgide.demo.persistece.entity.Organizer;
 import com.museumsgide.demo.persistece.repository.OrganizerRepository;
 import org.springframework.beans.factory.annotation.Autowired;

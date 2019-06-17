@@ -1,9 +1,9 @@
 package com.museumsgide.demo.service;
 
-import com.museumsgide.demo.dto.ExhibitionsDTO;
-import com.museumsgide.demo.dto.ObjectsDTO;
-import com.museumsgide.demo.mapper.ExhibitionsMapper;
-import com.museumsgide.demo.mapper.ObjectsMapper;
+import com.museumsgide.demo.shared.dto.ExhibitionsDTO;
+import com.museumsgide.demo.shared.dto.ObjectsDTO;
+import com.museumsgide.demo.shared.mapper.ExhibitionsMapper;
+import com.museumsgide.demo.shared.mapper.ObjectsMapper;
 import com.museumsgide.demo.persistece.entity.Exhibitions;
 import com.museumsgide.demo.persistece.entity.Objects;
 import com.museumsgide.demo.persistece.repository.ObjectRepository;

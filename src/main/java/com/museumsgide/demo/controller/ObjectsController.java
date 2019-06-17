@@ -1,7 +1,7 @@
 package com.museumsgide.demo.controller;
 
-import com.museumsgide.demo.dto.ExhibitionsDTO;
-import com.museumsgide.demo.dto.ObjectsDTO;
+import com.museumsgide.demo.shared.dto.ExhibitionsDTO;
+import com.museumsgide.demo.shared.dto.ObjectsDTO;
 import com.museumsgide.demo.service.ObjectsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

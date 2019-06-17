@@ -1,7 +1,7 @@
 package com.museumsgide.demo.service;
 
-import com.museumsgide.demo.dto.UsersDTO;
-import com.museumsgide.demo.mapper.UsersMapper;
+import com.museumsgide.demo.shared.dto.UsersDTO;
+import com.museumsgide.demo.shared.mapper.UsersMapper;
 import com.museumsgide.demo.persistece.entity.Users;
 import com.museumsgide.demo.persistece.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
