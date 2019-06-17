@@ -9,7 +9,6 @@ public class Admin {
     @GeneratedValue
     private Long id;
 
-    @Column
     @ManyToOne
     private Users users;
 
