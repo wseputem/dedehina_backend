@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 public interface ObjectRepository extends CrudRepository<Objects, Long> {
-    List<Objects> findAllByName(String name);
+    List<Objects> findAllByNameContaining(String name);
     List<Objects> findAllByDate(Date date);
     List<Objects> findAllByCatObject_Name(String name);
     List<Objects> findAllByAuthor_NameContaining(String name);

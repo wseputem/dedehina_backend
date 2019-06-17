@@ -56,7 +56,7 @@ public class ObjectsService {
     }
 
     public List<ObjectsDTO> searchByName(String name){
-        List<Objects> objectsList = objectRepository.findAllByName(name);
+        List<Objects> objectsList = objectRepository.findAllByNameContaining(name);
         if (objectsList != null) {
             return objectsMapper.createObjectsDTOList(objectsList);
         } else {
@@ -91,7 +91,7 @@ public class ObjectsService {
         }
     }
     public List<ExhibitionsDTO> searchExhibitionsByObjectName(String name){
-        List<Objects> objectsList = objectRepository.findAllByName(name);
+        List<Objects> objectsList = objectRepository.findAllByNameContaining(name);
         List<Exhibitions> exhibitionsList = null;
         if (objectsList != null) {
             for(Objects objects : objectsList){
