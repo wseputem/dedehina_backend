@@ -1,4 +1,4 @@
-package com.museumsgide.demo.dto;
+package com.museumsgide.demo.shared.dto;
 
 public class AdminDTO {
     private Long id;

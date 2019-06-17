@@ -1,6 +1,6 @@
-package com.museumsgide.demo.mapper;
+package com.museumsgide.demo.shared.mapper;
 
-import com.museumsgide.demo.dto.AdminDTO;
+import com.museumsgide.demo.shared.dto.AdminDTO;
 import com.museumsgide.demo.persistece.entity.Admin;
 import com.museumsgide.demo.persistece.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
