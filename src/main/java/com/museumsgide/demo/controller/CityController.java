@@ -1,6 +1,6 @@
 package com.museumsgide.demo.controller;
 
-import com.museumsgide.demo.dto.CityDTO;
+import com.museumsgide.demo.shared.dto.CityDTO;
 import com.museumsgide.demo.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

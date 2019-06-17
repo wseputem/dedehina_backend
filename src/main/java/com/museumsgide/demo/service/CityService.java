@@ -1,7 +1,7 @@
 package com.museumsgide.demo.service;
 
-import com.museumsgide.demo.dto.CityDTO;
-import com.museumsgide.demo.mapper.CityMapper;
+import com.museumsgide.demo.shared.dto.CityDTO;
+import com.museumsgide.demo.shared.mapper.CityMapper;
 import com.museumsgide.demo.persistece.entity.City;
 import com.museumsgide.demo.persistece.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;

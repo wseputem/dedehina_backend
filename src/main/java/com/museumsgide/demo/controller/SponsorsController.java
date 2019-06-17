@@ -1,6 +1,6 @@
 package com.museumsgide.demo.controller;
 
-import com.museumsgide.demo.dto.SponsorsDTO;
+import com.museumsgide.demo.shared.dto.SponsorsDTO;
 import com.museumsgide.demo.service.SponsorsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

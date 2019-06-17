@@ -1,7 +1,7 @@
 package com.museumsgide.demo.service;
 
-import com.museumsgide.demo.dto.ToursDTO;
-import com.museumsgide.demo.mapper.ToursMapper;
+import com.museumsgide.demo.shared.dto.ToursDTO;
+import com.museumsgide.demo.shared.mapper.ToursMapper;
 import com.museumsgide.demo.persistece.entity.Tours;
 import com.museumsgide.demo.persistece.repository.ToursRepository;
 import org.springframework.beans.factory.annotation.Autowired;
