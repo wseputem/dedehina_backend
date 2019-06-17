@@ -6,6 +6,9 @@ import com.museumsgide.demo.persistece.repository.ExhibitionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class ToursMapper {
     private ExhibitionsRepository exhibitionsRepository;
@@ -33,5 +36,12 @@ public class ToursMapper {
         toursDTO.setDuration(tours.getDuration());
         toursDTO.setExhibitionsId(tours.getExhibitions().getId());
         return toursDTO;
+    }
+    public List<ToursDTO> createToursDTOList(List<Tours> toursList){
+        List<ToursDTO> toursDTOS = new ArrayList<>();
+        for (Tours tours : toursList){
+            toursDTOS.add(createToursDTO(tours));
+        }
+        return toursDTOS;
     }
 }

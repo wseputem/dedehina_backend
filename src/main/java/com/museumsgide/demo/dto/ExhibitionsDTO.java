@@ -12,6 +12,24 @@ public class ExhibitionsDTO {
     private Long catExhibitionsId;
     private Long branchId;
     private List<Long> objectIds;
+    private List<Long> sponsorIds;
+    private List<Long> organizerIds;
+
+    public List<Long> getOrganizerIds() {
+        return organizerIds;
+    }
+
+    public void setOrganizerIds(List<Long> organizerIds) {
+        this.organizerIds = organizerIds;
+    }
+
+    public List<Long> getSponsorIds() {
+        return sponsorIds;
+    }
+
+    public void setSponsorIds(List<Long> sponsorIds) {
+        this.sponsorIds = sponsorIds;
+    }
 
     public Long getId() {
         return id;

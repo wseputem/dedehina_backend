@@ -1,5 +1,6 @@
 package com.museumsgide.demo.controller;
 
+import com.museumsgide.demo.dto.ExhibitionsDTO;
 import com.museumsgide.demo.dto.ObjectsDTO;
 import com.museumsgide.demo.service.ObjectsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,11 @@ public class ObjectsController {
     @GetMapping(path = "/search/authorName:{name}")
     public List<ObjectsDTO> searchByAuthorName(@PathVariable String name) {
         return objectsService.searchByAuthor_Name(name);
+    }
+
+    @GetMapping(path = "/search/exhibitionsByObjectName:{name}")
+    public List<ExhibitionsDTO> searchExhibitionsByObjectName(@PathVariable String name) {
+        return objectsService.searchExhibitionsByObjectName(name);
     }
 
 }

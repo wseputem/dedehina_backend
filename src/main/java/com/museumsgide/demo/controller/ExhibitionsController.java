@@ -1,6 +1,7 @@
 package com.museumsgide.demo.controller;
 
 import com.museumsgide.demo.dto.ExhibitionsDTO;
+import com.museumsgide.demo.dto.ObjectsDTO;
 import com.museumsgide.demo.service.ExhibitionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ public class ExhibitionsController {
     public ExhibitionsController(ExhibitionsService exhibitionsService) {
         this.exhibitionsService = exhibitionsService;
     }
+
     @PostMapping(path = "/create", consumes = "application/json", produces = "application/json")
     public ExhibitionsDTO createExhibitions(@RequestBody ExhibitionsDTO exhibitionsDTO){
         return exhibitionsService.save(exhibitionsDTO);
@@ -72,5 +74,9 @@ public class ExhibitionsController {
     @GetMapping(path = "/search/catExhibitionsName:{name}")
     public List<ExhibitionsDTO> searchByCatExhibitionsName(@PathVariable String name) {
         return exhibitionsService.searchByCatExhibitionsName(name);
+    }
+    @GetMapping(path = "/search/objectsByExhibitionsName:{name}")
+    public List<ObjectsDTO> searchObjectsByExhibitionsName(@PathVariable String name) {
+        return exhibitionsService.searchObjectsByExhibitionsName(name);
     }
 }

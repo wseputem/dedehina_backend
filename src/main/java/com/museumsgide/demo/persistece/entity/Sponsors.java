@@ -1,9 +1,7 @@
 package com.museumsgide.demo.persistece.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Sponsors {
@@ -13,6 +11,21 @@ public class Sponsors {
 
     @Column
     private String name;
+
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(name = "exhibitions_sponsors",
+            joinColumns = @JoinColumn(name="sponsors_id"),
+            inverseJoinColumns = @JoinColumn(name="exhibitions_id")
+    )
+    private List<Exhibitions> exhibitions;
+
+    public List<Exhibitions> getExhibitions() {
+        return exhibitions;
+    }
+
+    public void setExhibitions(List<Exhibitions> exhibitions) {
+        this.exhibitions = exhibitions;
+    }
 
     public Long getId() {
         return id;

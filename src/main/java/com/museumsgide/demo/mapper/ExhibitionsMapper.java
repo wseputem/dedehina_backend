@@ -3,9 +3,9 @@ package com.museumsgide.demo.mapper;
 import com.museumsgide.demo.dto.ExhibitionsDTO;
 import com.museumsgide.demo.persistece.entity.Exhibitions;
 import com.museumsgide.demo.persistece.entity.Objects;
-import com.museumsgide.demo.persistece.repository.BranchRepository;
-import com.museumsgide.demo.persistece.repository.CatExhibitionsRepository;
-import com.museumsgide.demo.persistece.repository.ObjectRepository;
+import com.museumsgide.demo.persistece.entity.Organizer;
+import com.museumsgide.demo.persistece.entity.Sponsors;
+import com.museumsgide.demo.persistece.repository.*;
 import org.glassfish.jersey.internal.guava.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,12 +19,16 @@ public class ExhibitionsMapper {
     private CatExhibitionsRepository catExhibitionsRepository;
     private BranchRepository branchRepository;
     private ObjectRepository objectRepository;
+    private SponsorsRepository sponsorsRepository;
+    private OrganizerRepository organizerRepository;
 
     @Autowired
-    public ExhibitionsMapper(CatExhibitionsRepository catExhibitionsRepository, BranchRepository branchRepository, ObjectRepository objectRepository) {
+    public ExhibitionsMapper(CatExhibitionsRepository catExhibitionsRepository, BranchRepository branchRepository, ObjectRepository objectRepository, SponsorsRepository sponsorsRepository, OrganizerRepository organizerRepository) {
         this.catExhibitionsRepository = catExhibitionsRepository;
         this.branchRepository = branchRepository;
         this.objectRepository = objectRepository;
+        this.sponsorsRepository = sponsorsRepository;
+        this.organizerRepository = organizerRepository;
     }
 
     public Exhibitions createExhibitions(ExhibitionsDTO exhibitionsDTO){
@@ -37,6 +41,10 @@ public class ExhibitionsMapper {
         exhibitions.setBranch(branchRepository.findById(exhibitionsDTO.getBranchId()).orElse(null));
         List<Objects> objects = Lists.newArrayList(objectRepository.findAllById(exhibitionsDTO.getObjectIds()));
         exhibitions.setObjects(objects);
+        List<Sponsors> sponsors = Lists.newArrayList(sponsorsRepository.findAllById(exhibitionsDTO.getSponsorIds()));
+        exhibitions.setSponsors(sponsors);
+        List<Organizer> organizers = Lists.newArrayList(organizerRepository.findAllById(exhibitionsDTO.getOrganizerIds()));
+        exhibitions.setOrganizers(organizers);
         return exhibitions;
     }
 
@@ -49,6 +57,8 @@ public class ExhibitionsMapper {
         exhibitionsDTO.setCatExhibitionsId(exhibitions.getCatExhibitions().getId());
         exhibitionsDTO.setBranchId(exhibitions.getBranch().getId());
         exhibitionsDTO.setObjectIds(exhibitions.getObjects().stream().map(Objects::getId).collect(Collectors.toList()));
+        exhibitionsDTO.setSponsorIds(exhibitions.getSponsors().stream().map(Sponsors::getId).collect(Collectors.toList()));
+        exhibitionsDTO.setOrganizerIds(exhibitions.getOrganizers().stream().map(Organizer::getId).collect(Collectors.toList()));
         return exhibitionsDTO;
     }
 

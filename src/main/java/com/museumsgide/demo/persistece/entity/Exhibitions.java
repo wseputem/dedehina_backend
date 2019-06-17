@@ -32,6 +32,36 @@ public class Exhibitions {
     )
     private List<Objects> objects;
 
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(name = "exhibitions_sponsors",
+            joinColumns = @JoinColumn(name="exhibitions_id"),
+            inverseJoinColumns = @JoinColumn(name="sponsors_id")
+    )
+    private List<Sponsors> sponsors;
+
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(name = "exhibitions_organizer",
+            joinColumns = @JoinColumn(name="exhibitions_id"),
+            inverseJoinColumns = @JoinColumn(name="organizer_id")
+    )
+    private List<Organizer> organizers;
+
+    public List<Organizer> getOrganizers() {
+        return organizers;
+    }
+
+    public void setOrganizers(List<Organizer> organizers) {
+        this.organizers = organizers;
+    }
+
+    public List<Sponsors> getSponsors() {
+        return sponsors;
+    }
+
+    public void setSponsors(List<Sponsors> sponsors) {
+        this.sponsors = sponsors;
+    }
+
     public List<Objects> getObjects() {
         return objects;
     }

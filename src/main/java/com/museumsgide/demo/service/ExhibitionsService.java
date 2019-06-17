@@ -1,14 +1,15 @@
 package com.museumsgide.demo.service;
 
 import com.museumsgide.demo.dto.ExhibitionsDTO;
+import com.museumsgide.demo.dto.ObjectsDTO;
 import com.museumsgide.demo.mapper.ExhibitionsMapper;
+import com.museumsgide.demo.mapper.ObjectsMapper;
 import com.museumsgide.demo.persistece.entity.Exhibitions;
 import com.museumsgide.demo.persistece.entity.Objects;
 import com.museumsgide.demo.persistece.repository.ExhibitionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,11 +17,13 @@ import java.util.List;
 public class ExhibitionsService {
     private ExhibitionsRepository exhibitionsRepository;
     private ExhibitionsMapper exhibitionsMapper;
+    private ObjectsMapper objectsMapper;
 
     @Autowired
-    public ExhibitionsService(ExhibitionsRepository exhibitionsRepository, ExhibitionsMapper exhibitionsMapper) {
+    public ExhibitionsService(ExhibitionsRepository exhibitionsRepository, ExhibitionsMapper exhibitionsMapper, ObjectsMapper objectsMapper) {
         this.exhibitionsRepository = exhibitionsRepository;
         this.exhibitionsMapper = exhibitionsMapper;
+        this.objectsMapper = objectsMapper;
     }
 
     public ExhibitionsDTO save(ExhibitionsDTO exhibitionsDTO){
@@ -97,7 +100,7 @@ public class ExhibitionsService {
         }
     }
 
-    public List<ExhibitionsDTO> searchByCatExhibitionsName(String name){
+    public List<ExhibitionsDTO> searchByCatExhibitionsName(String name) {
         List<Exhibitions> list = exhibitionsRepository.findAllByCatExhibitionsName(name);
         if (list != null) {
             return exhibitionsMapper.createExhibitionsDTOList(list);
@@ -106,4 +109,16 @@ public class ExhibitionsService {
         }
     }
 
+    public List<ObjectsDTO> searchObjectsByExhibitionsName(String name){
+        List<Exhibitions> list = exhibitionsRepository.findAllByName(name);
+        List<Objects> objectsList= null;
+        if (list != null) {
+            for(Exhibitions exhibitions : list){
+                objectsList = exhibitions.getObjects();
+            }
+            return objectsMapper.createObjectsDTOList(objectsList);
+        } else {
+            return null;
+        }
+    }
 }

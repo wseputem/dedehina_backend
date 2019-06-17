@@ -1,9 +1,19 @@
 package com.museumsgide.demo.dto;
 
+import java.util.List;
+
 public class OrganizerDTO {
     private Long id;
     private String name;
-    private Long exhibitionsId;
+    private List<Long> exhibitionIds;
+
+    public List<Long> getExhibitionIds() {
+        return exhibitionIds;
+    }
+
+    public void setExhibitionIds(List<Long> exhibitionIds) {
+        this.exhibitionIds = exhibitionIds;
+    }
 
     public Long getId() {
         return id;
@@ -19,13 +29,5 @@ public class OrganizerDTO {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Long getExhibitionsId() {
-        return exhibitionsId;
-    }
-
-    public void setExhibitionsId(Long exhibitionsId) {
-        this.exhibitionsId = exhibitionsId;
     }
 }

@@ -1,7 +1,10 @@
 package com.museumsgide.demo.service;
 
+import com.museumsgide.demo.dto.ExhibitionsDTO;
 import com.museumsgide.demo.dto.ObjectsDTO;
+import com.museumsgide.demo.mapper.ExhibitionsMapper;
 import com.museumsgide.demo.mapper.ObjectsMapper;
+import com.museumsgide.demo.persistece.entity.Exhibitions;
 import com.museumsgide.demo.persistece.entity.Objects;
 import com.museumsgide.demo.persistece.repository.ObjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +17,13 @@ import java.util.List;
 public class ObjectsService {
     private ObjectsMapper objectsMapper;
     private ObjectRepository objectRepository;
+    private ExhibitionsMapper exhibitionsMapper;
 
     @Autowired
-    public ObjectsService(ObjectsMapper objectsMapper, ObjectRepository objectRepository) {
+    public ObjectsService(ObjectsMapper objectsMapper, ObjectRepository objectRepository, ExhibitionsMapper exhibitionsMapper) {
         this.objectsMapper = objectsMapper;
         this.objectRepository = objectRepository;
+        this.exhibitionsMapper = exhibitionsMapper;
     }
 
     public ObjectsDTO save(ObjectsDTO objectsDTO){
@@ -81,6 +86,18 @@ public class ObjectsService {
         List<Objects> objectsList = objectRepository.findAllByAuthor_NameContaining(name);
         if (objectsList != null) {
             return objectsMapper.createObjectsDTOList(objectsList);
+        } else {
+            return null;
+        }
+    }
+    public List<ExhibitionsDTO> searchExhibitionsByObjectName(String name){
+        List<Objects> objectsList = objectRepository.findAllByName(name);
+        List<Exhibitions> exhibitionsList = null;
+        if (objectsList != null) {
+            for(Objects objects : objectsList){
+                exhibitionsList = objects.getExhibitions();
+            }
+            return exhibitionsMapper.createExhibitionsDTOList(exhibitionsList);
         } else {
             return null;
         }
