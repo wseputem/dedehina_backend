@@ -1,6 +1,11 @@
 package com.museumsgide.demo.service;
 
+import com.museumsgide.demo.persistece.entity.Branch;
+import com.museumsgide.demo.persistece.entity.Museum;
+import com.museumsgide.demo.persistece.repository.BranchRepository;
+import com.museumsgide.demo.persistece.repository.MuseumsRepository;
 import com.museumsgide.demo.shared.dto.ExhibitionsDTO;
+import com.museumsgide.demo.shared.dto.MuseumDTO;
 import com.museumsgide.demo.shared.dto.ObjectsDTO;
 import com.museumsgide.demo.shared.mapper.ExhibitionsMapper;
 import com.museumsgide.demo.shared.mapper.ObjectsMapper;
@@ -12,12 +17,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ExhibitionsService {
     private ExhibitionsRepository exhibitionsRepository;
     private ExhibitionsMapper exhibitionsMapper;
     private ObjectsMapper objectsMapper;
+    private MuseumsRepository museumsRepository;
+    private BranchRepository branchRepository;
 
     @Autowired
     public ExhibitionsService(ExhibitionsRepository exhibitionsRepository, ExhibitionsMapper exhibitionsMapper, ObjectsMapper objectsMapper) {
@@ -117,6 +125,20 @@ public class ExhibitionsService {
                 objectsList = exhibitions.getObjects();
             }
             return objectsMapper.createObjectsDTOList(objectsList);
+        } else {
+            return null;
+        }
+    }
+
+    public List<ExhibitionsDTO> searchMuseums(Long id){
+        Museum museum = museumsRepository.findAllById(id);
+        List<ExhibitionsDTO> exhibitionsDTOS = null;
+        List<Exhibitions> exhibitionsList = exhibitionsRepository.findAllByBranchId(branchRepository.findAllByMuseum_Id(museum.getId()).getId());
+        if (exhibitionsList != null) {
+            for(Exhibitions exhibitions : exhibitionsList){
+                exhibitionsDTOS = exhibitionsMapper.createExhibitionsDTOList(exhibitionsList);
+            }
+            return exhibitionsDTOS;
         } else {
             return null;
         }

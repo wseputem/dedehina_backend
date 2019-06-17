@@ -79,4 +79,8 @@ public class ExhibitionsController {
     public List<ObjectsDTO> searchObjectsByExhibitionsName(@PathVariable String name) {
         return exhibitionsService.searchObjectsByExhibitionsName(name);
     }
+    @GetMapping(path = "/search/byMuseumsId:{id}")
+    public List<ExhibitionsDTO> searchByMuseumsId(@PathVariable Long id) {
+        return exhibitionsService.searchMuseums(id);
+    }
 }

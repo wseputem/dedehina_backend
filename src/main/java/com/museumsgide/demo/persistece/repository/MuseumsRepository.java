@@ -6,6 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface MuseumsRepository extends CrudRepository<Museum, Long> {
+    Museum findAllById(Long id);
     List<Museum> findAllByName(String name);
     List<Museum> findAllByCityId(Long id);
     List<Museum> findAllByCatMuseumsId(Long id);
