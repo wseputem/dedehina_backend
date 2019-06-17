@@ -18,14 +18,14 @@ public class AdminMapper {
         this.usersRepository = usersRepository;
     }
 
-    public Admin creatAuthor(AdminDTO adminDTO){
+    public Admin creatAdmin(AdminDTO adminDTO){
         Admin admin = new Admin();
         admin.setId(adminDTO.getId());
         admin.setUsers(usersRepository.findAllById(adminDTO.getUsersId()));
         return admin;
     }
 
-    public AdminDTO createAuthorDTO(Admin admin){
+    public AdminDTO createAdminDTO(Admin admin){
         AdminDTO adminDTO = new AdminDTO();
         adminDTO.setId(admin.getId());
         adminDTO.setUsersId(admin.getUsers().getId());
@@ -35,7 +35,7 @@ public class AdminMapper {
     public List<AdminDTO> createAdminDTOList(List<Admin> admins){
         List<AdminDTO> adminDTOS= new ArrayList<>();
         for (Admin admin : admins){
-            adminDTOS.add(createAuthorDTO(admin));
+            adminDTOS.add(createAdminDTO(admin));
         }
         return adminDTOS;
     }

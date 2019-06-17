@@ -3,6 +3,7 @@ package com.museumsgide.demo.controller;
 
 import com.museumsgide.demo.shared.dto.AdminDTO;
 import com.museumsgide.demo.service.AdminService;
+import com.museumsgide.demo.shared.dto.UsersDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,5 +44,10 @@ public class AdminController {
     @GetMapping(path = "/search/all")
     public List<AdminDTO> searchAll() {
         return adminService.searchByAll();
+    }
+
+    @GetMapping(path = "/check/id:{id}")
+    public UsersDTO check(@PathVariable Long id){
+        return adminService.check(id);
     }
 }
