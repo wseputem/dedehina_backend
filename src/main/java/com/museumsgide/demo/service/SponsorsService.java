@@ -1,7 +1,7 @@
 package com.museumsgide.demo.service;
 
-import com.museumsgide.demo.dto.SponsorsDTO;
-import com.museumsgide.demo.mapper.SponsorsMapper;
+import com.museumsgide.demo.shared.dto.SponsorsDTO;
+import com.museumsgide.demo.shared.mapper.SponsorsMapper;
 import com.museumsgide.demo.persistece.entity.Sponsors;
 import com.museumsgide.demo.persistece.repository.SponsorsRepository;
 import org.springframework.beans.factory.annotation.Autowired;

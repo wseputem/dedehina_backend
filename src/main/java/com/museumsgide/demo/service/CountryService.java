@@ -1,7 +1,7 @@
 package com.museumsgide.demo.service;
 
-import com.museumsgide.demo.dto.CountryDTO;
-import com.museumsgide.demo.mapper.CountryMapper;
+import com.museumsgide.demo.shared.dto.CountryDTO;
+import com.museumsgide.demo.shared.mapper.CountryMapper;
 import com.museumsgide.demo.persistece.entity.Country;
 import com.museumsgide.demo.persistece.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
